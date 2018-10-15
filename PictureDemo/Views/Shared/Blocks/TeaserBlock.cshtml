@@ -14,7 +14,7 @@
         <p @Html.EditAttributes(x => x.Text)>@Model.Text</p>
         <div @Html.EditAttributes(x => x.Image)>
             @*            <img src="@Url.ContentUrl(Model.Image)" />*@
-            @Html.Picture(Url.ContentUrl(Model.Image), ImageTypes.Teaser)
+            @Html.Picture(Url.ContentUrl(Model.Image), ImageTypes.Teaser, lazyLoadType: LazyLoadType.Progressive)
 
         </div>
     }

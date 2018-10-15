@@ -1,4 +1,4 @@
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 @using EPiServer.Framework.Web.Mvc.Html
 @using PictureDemo.Business
 @model IPageViewModel<SitePageData>
@@ -27,23 +27,28 @@
 
     <body>
         @if (Model.Layout.IsInReadonlyMode)
-        {
-            Html.RenderPartial("Readonly", Model);
-        }
+    {
+        Html.RenderPartial("Readonly", Model);
+    }
 
         @Html.RenderEPiServerQuickNavigator()
         @Html.FullRefreshPropertiesMetaData()
         <div class="container">
-            @if(!Model.Layout.HideHeader)
-            {
-                Html.RenderPartial("Header", Model);
-            }
+            @if (!Model.Layout.HideHeader)
+        {
+            Html.RenderPartial("Header", Model);
+        }
             @RenderBody()
-            @if(!Model.Layout.HideFooter)
-            {
-                Html.RenderPartial("Footer", Model);
-            }
+            @if (!Model.Layout.HideFooter)
+        {
+            Html.RenderPartial("Footer", Model);
+        }
         </div>
         @Html.RequiredClientResources("Footer")
+
+        <script src="/Static/js/lazyImage.js"></script>
+        <script type="text/javascript">
+            window.onload = initializeLazyImages();
+        </script>
     </body>
 </html>
